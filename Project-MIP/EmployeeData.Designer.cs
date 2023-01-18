@@ -284,6 +284,7 @@
             this.empFName.TabIndex = 27;
             this.empFName.Text = "First Name";
             this.empFName.Visible = false;
+            this.empFName.Click += new System.EventHandler(this.empFName_Click);
             // 
             // DeleteButon
             // 

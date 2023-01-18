@@ -18,7 +18,7 @@ namespace Project_MIP
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainPageE());
+            Application.Run(new Login());
         }
     }
 

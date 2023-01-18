@@ -71,9 +71,9 @@ namespace Project_MIP
                 try
                 {
                     Con.Open();
-                    SqlDataAdapter adapter = new SqlDataAdapter("insert into EmployeeTbl(empFirstName,empLastName,empGender,empBirthDate,empAddress,empPhone,empEducation,empPosition,empEmploymentDate) values('" + empFirstNameTb.Text + "','" + empLastNameTb.Text + "','" + empGenderDb.SelectedItem.ToString() + "','" + empBirthDateD.Value.Date + "','" + empAddressTb.Text + "','" + empPhoneTb.Text + "','" + empEducationTb.SelectedItem.ToString() + "','" + empPositionDb.SelectedItem.ToString() + "','" + empEmploymentDateD.Value.Date + "')",Con);
-                    DataTable dt = new DataTable();
-                    adapter.Fill(dt);
+                    string query = "insert into EmployeeTbl values('" + empIDTb.Text + "','" + empFirstNameTb.Text + "','" + empLastNameTb.Text + "','" + empGenderDb.SelectedItem.ToString() + "','" + empBirthDateD.Value.Date + "','" + empAddressTb.Text + "','" + empPhoneTb.Text + "','" + empEducationTb.SelectedItem.ToString() + "','" + empPositionDb.SelectedItem.ToString() + "','" + empEmploymentDateD.Value.Date + "')";
+                    SqlCommand cmd = new SqlCommand(query, Con);
+                    cmd.ExecuteNonQuery();
                     MessageBox.Show("Data successfully added!");
                     Con.Close();
                     populate();
@@ -92,9 +92,9 @@ namespace Project_MIP
                     string val = "HR2023";
                     string pas = "admin";
 
-                    SqlDataAdapter query1 = new SqlDataAdapter("insert into Login(lName,fName,username,password) values('" + empLastNameTb.Text + "','" + empFirstNameTb.Text + "','" + val + "','" + pas + "')", Con);
-                    DataTable dt1 = new DataTable();
-                    query1.Fill(dt1);
+                    string query1 = "insert into Login values('" + empIDTb.Text + "','" + empLastNameTb.Text + "','" + empFirstNameTb.Text + "','" + val + "','" + pas + "')";
+                    SqlCommand cmd=new SqlCommand(query1, Con);
+                    cmd.ExecuteNonQuery();
                     MessageBox.Show("Data successfully added in Login!");
                     Con.Close();
 
@@ -104,9 +104,9 @@ namespace Project_MIP
                     Con.Open();
                     string val = "EMP2023";
                     string pas = "employee";
-                    SqlDataAdapter query1 = new SqlDataAdapter("insert into Login(lName,fName,username,password) values('" + empLastNameTb.Text + "','" + empFirstNameTb.Text + "','" + val + "','" + pas + "')", Con);
-                    DataTable dt1 = new DataTable();
-                    query1.Fill(dt1);
+                    string query1 = "insert into Login values('" + empIDTb.Text + "','" + empLastNameTb.Text + "','" + empFirstNameTb.Text + "','" + val + "','" + pas + "')";
+                    SqlCommand cmd = new SqlCommand(query1, Con);
+                    cmd.ExecuteNonQuery();
                     MessageBox.Show("Data successfully added in Login!");
                     Con.Close();
                 }
@@ -206,7 +206,7 @@ namespace Project_MIP
                 try
                 {
                     Con.Open();
-                    string query = "update EmployeeTbl set empFirstName='" + empFirstNameTb.Text + "',empLastName='" + empLastNameTb.Text + "',empGender='" + empGenderDb.SelectedItem.ToString() + "',empBirthDate='" + empBirthDateD.Value.Date + "',empAddress='" + empAddressTb.Text + "',empPhone='" + empPhoneTb.Text + "', empEducation='" + empEducationTb.SelectedItem.ToString() + "',empPosition='" + empPositionDb.SelectedItem.ToString() + "',empEmploymentDate='" + empEmploymentDateD.Value.Date + "'where empID='" + empIDTb.Text + "';";
+                    string query = "update EmployeeTbl set empID='" + empIDTb.Text + "',empFirstName='" + empFirstNameTb.Text + "',empLastName='" + empLastNameTb.Text + "',empGender='" + empGenderDb.SelectedItem.ToString() + "',empBirthDate='" + empBirthDateD.Value.Date + "',empAddress='" + empAddressTb.Text + "',empPhone='" + empPhoneTb.Text + "', empEducation='" + empEducationTb.SelectedItem.ToString() + "',empPosition='" + empPositionDb.SelectedItem.ToString() + "',empEmploymentDate='" + empEmploymentDateD.Value.Date + "'where empID='" + empIDTb.Text + "';";
                     SqlCommand cmd = new SqlCommand(query, Con);
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Data successfully updated!");
@@ -224,7 +224,7 @@ namespace Project_MIP
                     Con.Open();
                     string val = "HR2023";
                     string pas = "admin";
-                    string query1 = "update Login set fName='" + empFirstNameTb.Text + "',lname='" + empLastNameTb.Text + "',username='" + val + "',password='" + pas + "'where ID='" + empIDTb.Text + "';"; 
+                    string query1 = "update Login set ID='" + empIDTb.Text + "', fName='" + empFirstNameTb.Text + "',lname='" + empLastNameTb.Text + "',username='" + val + "',password='" + pas + "'where ID='" + empIDTb.Text + "';"; 
                     SqlCommand cmd = new SqlCommand(query1, Con);
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Data successfully updated in Login!");
@@ -236,7 +236,7 @@ namespace Project_MIP
                     Con.Open();
                     string val = "EMP2023";
                     string pas = "employee";
-                    string query1 = "update Login set fName='" + empFirstNameTb.Text + "',lname='" + empLastNameTb.Text + "',username='" + val + "',password='" + pas + "'where ID='" + empIDTb.Text + "';";
+                    string query1 = "update Login set ID='"+empIDTb.Text+"', fName='" + empFirstNameTb.Text + "',lname='" + empLastNameTb.Text + "',username='" + val + "',password='" + pas + "'where ID='" + empIDTb.Text + "';";
                     SqlCommand cmd = new SqlCommand(query1, Con);
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Data successfully updated in Login!");
@@ -277,6 +277,16 @@ namespace Project_MIP
         private void empIDTb_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            empIDTb.Clear();
+            empFirstNameTb.Clear();
+            empLastNameTb.Clear();
+            empAddressTb.Clear();
+            empPhoneTb.Clear();
+          
         }
     }
 

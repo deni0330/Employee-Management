@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using Proiect_MIP;
 using System.Data.SqlClient;
+using System.Linq;
 
 namespace Project_MIP
 {
@@ -18,9 +19,10 @@ namespace Project_MIP
         }
         SqlConnection Con = new SqlConnection(@"Data Source=Denisa;Initial Catalog=Employee Management;Integrated Security=True");
         Employee emp = new Employee();
+
         private void fetchdata()
         {
-
+            List<Employee> employee = new List<Employee>();
             if (empIDSearch.Text == "")
             {
                 MessageBox.Show("Please enter the ID!");
@@ -29,34 +31,45 @@ namespace Project_MIP
                 try
                 {
                     Con.Open();
-                    string query = "select * from EmployeeTbl where empID='" + empIDSearch.Text + "'";
+                    string query = "select * from EmployeeTbl";
                     SqlCommand cmd = new SqlCommand(query, Con);
                     DataTable dt = new DataTable();
                     SqlDataAdapter sda = new SqlDataAdapter(cmd);
                     sda.Fill(dt);
+                    
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        emp=new Employee();
+                        emp.FirstName = dr[1].ToString();
+                        emp.LastName = dr[2].ToString();
+                        emp.Gender = dr[3].ToString();
+                        emp.BirthDate = dr[4].ToString();
+                        emp.Address = dr[5].ToString();
+                        emp.Phone = dr[6].ToString();
+                        emp.Education = dr[7].ToString();
+                        emp.Position = dr[8].ToString();
+                        emp.EmployementDate = dr[9].ToString();
+                        emp.EmpID = int.Parse(dr[0].ToString());
 
-                    DataRow dr = dt.Rows[0];
-                    emp.FirstName = dr[1].ToString();
-                    emp.LastName = dr[2].ToString();
-                    emp.Gender = dr[3].ToString();
-                    emp.BirthDate = dr[4].ToString();
-                    emp.Address = dr[5].ToString();
-                    emp.Phone = dr[6].ToString();
-                    emp.Education = dr[7].ToString();
-                    emp.Position = dr[8].ToString();
-                    emp.EmployementDate = dr[9].ToString();
-                    emp.EmpID = int.Parse(empIDSearch.Text);
+                       
+                        employee.Add(emp);
+
+
+                    }
+                 
+                    Employee result=employee.Where(e => e.EmpID == int.Parse(empIDSearch.Text)).First();
+                    
 
                     bool T = true;
-                    empFName.Text = emp.FirstName;
-                    empLName.Text = emp.LastName;
-                    empGen.Text = emp.Gender;
-                    empBD.Text = emp.BirthDate;
-                    empAd.Text = emp.Address;
-                    empPho.Text = emp.Phone;
-                    empEd.Text = emp.Education;
-                    empPos.Text = emp.Position;
-                    empEdate.Text = emp.EmployementDate;
+                    empFName.Text = result.FirstName;
+                    empLName.Text = result.LastName;
+                    empGen.Text = result.Gender;
+                    empBD.Text = result.BirthDate;
+                    empAd.Text = result.Address;
+                    empPho.Text = result.Phone;
+                    empEd.Text = result.Education;
+                    empPos.Text = result.Position;
+                    empEdate.Text = result.EmployementDate;
 
                     empFName.Visible = T;
                     empLName.Visible = T;
@@ -139,6 +152,11 @@ namespace Project_MIP
         }
 
         private void label12_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void empFName_Click(object sender, EventArgs e)
         {
 
         }

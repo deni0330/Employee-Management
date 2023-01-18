@@ -28,14 +28,9 @@ namespace Project_MIP
         public int EmpID { get; set; }
         public string Position { get; set; }
 
-        public int Salary { get; set; }
 
         public string EmployementDate { get; set; }
 
-        public string PositionSalary()
-        {
-            return "The position "+ Position+ "is paid with "+ Salary+" RON";
-        }
 
     }
 

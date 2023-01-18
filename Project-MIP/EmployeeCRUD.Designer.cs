@@ -40,6 +40,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.empIDTb = new System.Windows.Forms.MaskedTextBox();
             this.DeleteButon = new System.Windows.Forms.Button();
@@ -125,10 +126,10 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.Indigo;
             this.panel3.Controls.Add(this.label1);
-            this.panel3.Location = new System.Drawing.Point(-3, 880);
+            this.panel3.Location = new System.Drawing.Point(-3, 895);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1828, 63);
+            this.panel3.Size = new System.Drawing.Size(1828, 48);
             this.panel3.TabIndex = 12;
             // 
             // label1
@@ -137,7 +138,7 @@
             this.label1.BackColor = System.Drawing.Color.Indigo;
             this.label1.Font = new System.Drawing.Font("Imprint MT Shadow", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.GhostWhite;
-            this.label1.Location = new System.Drawing.Point(931, 11);
+            this.label1.Location = new System.Drawing.Point(860, 7);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(170, 27);
             this.label1.TabIndex = 8;
@@ -146,6 +147,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Indigo;
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.empIDTb);
             this.panel1.Controls.Add(this.DeleteButon);
@@ -173,9 +175,23 @@
             this.panel1.Location = new System.Drawing.Point(45, 114);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(570, 744);
+            this.panel1.Size = new System.Drawing.Size(570, 758);
             this.panel1.TabIndex = 13;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.LightSlateGray;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button1.Location = new System.Drawing.Point(474, 683);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(73, 33);
+            this.button1.TabIndex = 29;
+            this.button1.Text = "Clear";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label4
             // 
@@ -194,7 +210,6 @@
             this.empIDTb.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.empIDTb.Location = new System.Drawing.Point(195, 138);
             this.empIDTb.Name = "empIDTb";
-            this.empIDTb.ReadOnly = true;
             this.empIDTb.Size = new System.Drawing.Size(310, 30);
             this.empIDTb.TabIndex = 27;
             this.empIDTb.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.empIDTb_MaskInputRejected);
@@ -205,7 +220,7 @@
             this.DeleteButon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DeleteButon.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.DeleteButon.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.DeleteButon.Location = new System.Drawing.Point(427, 679);
+            this.DeleteButon.Location = new System.Drawing.Point(334, 682);
             this.DeleteButon.Name = "DeleteButon";
             this.DeleteButon.Size = new System.Drawing.Size(100, 34);
             this.DeleteButon.TabIndex = 26;
@@ -219,7 +234,7 @@
             this.UpdateButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.UpdateButton.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.UpdateButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.UpdateButton.Location = new System.Drawing.Point(235, 679);
+            this.UpdateButton.Location = new System.Drawing.Point(181, 682);
             this.UpdateButton.Name = "UpdateButton";
             this.UpdateButton.Size = new System.Drawing.Size(101, 34);
             this.UpdateButton.TabIndex = 25;
@@ -233,7 +248,7 @@
             this.AddButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddButton.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.AddButton.ForeColor = System.Drawing.SystemColors.Control;
-            this.AddButton.Location = new System.Drawing.Point(51, 679);
+            this.AddButton.Location = new System.Drawing.Point(20, 682);
             this.AddButton.Name = "AddButton";
             this.AddButton.Size = new System.Drawing.Size(106, 34);
             this.AddButton.TabIndex = 24;
@@ -483,7 +498,7 @@
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.empGrid.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.empGrid.RowTemplate.Height = 29;
-            this.empGrid.Size = new System.Drawing.Size(1141, 744);
+            this.empGrid.Size = new System.Drawing.Size(1141, 759);
             this.empGrid.TabIndex = 15;
             this.empGrid.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.empGrid.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -568,5 +583,6 @@
         private Guna.UI2.WinForms.Guna2DataGridView empGrid;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.MaskedTextBox empIDTb;
+        private System.Windows.Forms.Button button1;
     }
 }

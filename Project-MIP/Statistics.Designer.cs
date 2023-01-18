@@ -33,6 +33,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -50,6 +54,7 @@
             this.numberM = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.empGrid = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.empGrid2 = new Guna.UI2.WinForms.Guna2DataGridView();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -58,6 +63,7 @@
             this.panel2.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.empGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.empGrid2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel3
@@ -147,8 +153,9 @@
             this.panel4.Controls.Add(this.label4);
             this.panel4.Location = new System.Drawing.Point(72, 122);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(408, 167);
+            this.panel4.Size = new System.Drawing.Size(507, 155);
             this.panel4.TabIndex = 22;
+            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
             // 
             // number
             // 
@@ -157,7 +164,7 @@
             this.number.BackColor = System.Drawing.Color.Indigo;
             this.number.Font = new System.Drawing.Font("Times New Roman", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.number.ForeColor = System.Drawing.Color.Lavender;
-            this.number.Location = new System.Drawing.Point(178, 91);
+            this.number.Location = new System.Drawing.Point(245, 87);
             this.number.Name = "number";
             this.number.Size = new System.Drawing.Size(84, 49);
             this.number.TabIndex = 18;
@@ -170,11 +177,11 @@
             this.label4.BackColor = System.Drawing.Color.Indigo;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.Color.Lavender;
-            this.label4.Location = new System.Drawing.Point(56, 12);
+            this.label4.Location = new System.Drawing.Point(101, 9);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(328, 64);
             this.label4.TabIndex = 17;
-            this.label4.Text = "Total number of employee \r\n     in the company";
+            this.label4.Text = "Total number of employee \r\n          in the company";
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // panel2
@@ -182,9 +189,9 @@
             this.panel2.BackColor = System.Drawing.Color.Indigo;
             this.panel2.Controls.Add(this.numberF);
             this.panel2.Controls.Add(this.label6);
-            this.panel2.Location = new System.Drawing.Point(72, 295);
+            this.panel2.Location = new System.Drawing.Point(72, 283);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(197, 157);
+            this.panel2.Size = new System.Drawing.Size(242, 140);
             this.panel2.TabIndex = 21;
             // 
             // numberF
@@ -193,7 +200,7 @@
             this.numberF.BackColor = System.Drawing.Color.Indigo;
             this.numberF.Font = new System.Drawing.Font("Times New Roman", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.numberF.ForeColor = System.Drawing.Color.Lavender;
-            this.numberF.Location = new System.Drawing.Point(71, 74);
+            this.numberF.Location = new System.Drawing.Point(101, 74);
             this.numberF.Name = "numberF";
             this.numberF.Size = new System.Drawing.Size(84, 49);
             this.numberF.TabIndex = 20;
@@ -206,7 +213,7 @@
             this.label6.BackColor = System.Drawing.Color.Indigo;
             this.label6.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label6.ForeColor = System.Drawing.Color.Lavender;
-            this.label6.Location = new System.Drawing.Point(17, 16);
+            this.label6.Location = new System.Drawing.Point(39, 16);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(167, 32);
             this.label6.TabIndex = 19;
@@ -217,9 +224,9 @@
             this.panel5.BackColor = System.Drawing.Color.Indigo;
             this.panel5.Controls.Add(this.numberM);
             this.panel5.Controls.Add(this.label5);
-            this.panel5.Location = new System.Drawing.Point(285, 295);
+            this.panel5.Location = new System.Drawing.Point(337, 283);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(195, 157);
+            this.panel5.Size = new System.Drawing.Size(242, 140);
             this.panel5.TabIndex = 23;
             // 
             // numberM
@@ -227,7 +234,7 @@
             this.numberM.AutoSize = true;
             this.numberM.Font = new System.Drawing.Font("Times New Roman", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.numberM.ForeColor = System.Drawing.Color.Lavender;
-            this.numberM.Location = new System.Drawing.Point(70, 74);
+            this.numberM.Location = new System.Drawing.Point(108, 74);
             this.numberM.Name = "numberM";
             this.numberM.Size = new System.Drawing.Size(84, 49);
             this.numberM.TabIndex = 19;
@@ -238,7 +245,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.Color.Lavender;
-            this.label5.Location = new System.Drawing.Point(25, 16);
+            this.label5.Location = new System.Drawing.Point(51, 16);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(141, 32);
             this.label5.TabIndex = 18;
@@ -269,14 +276,14 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.empGrid.DefaultCellStyle = dataGridViewCellStyle3;
             this.empGrid.GridColor = System.Drawing.Color.Lavender;
-            this.empGrid.Location = new System.Drawing.Point(582, 122);
+            this.empGrid.Location = new System.Drawing.Point(688, 122);
             this.empGrid.Name = "empGrid";
             this.empGrid.RowHeadersVisible = false;
             this.empGrid.RowHeadersWidth = 51;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.empGrid.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.empGrid.RowTemplate.Height = 29;
-            this.empGrid.Size = new System.Drawing.Size(696, 296);
+            this.empGrid.Size = new System.Drawing.Size(622, 301);
             this.empGrid.TabIndex = 24;
             this.empGrid.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.empGrid.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -301,12 +308,70 @@
             this.empGrid.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.empGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.empGrid_CellContentClick);
             // 
+            // empGrid2
+            // 
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.empGrid2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.empGrid2.BackgroundColor = System.Drawing.Color.Indigo;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.DarkSlateBlue;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.MediumPurple;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.empGrid2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.empGrid2.ColumnHeadersHeight = 50;
+            this.empGrid2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.empGrid2.DefaultCellStyle = dataGridViewCellStyle7;
+            this.empGrid2.GridColor = System.Drawing.Color.Lavender;
+            this.empGrid2.Location = new System.Drawing.Point(281, 452);
+            this.empGrid2.Name = "empGrid2";
+            this.empGrid2.RowHeadersVisible = false;
+            this.empGrid2.RowHeadersWidth = 51;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.empGrid2.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            this.empGrid2.RowTemplate.Height = 29;
+            this.empGrid2.Size = new System.Drawing.Size(896, 344);
+            this.empGrid2.TabIndex = 25;
+            this.empGrid2.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.empGrid2.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.empGrid2.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.empGrid2.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.empGrid2.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.empGrid2.ThemeStyle.BackColor = System.Drawing.Color.Indigo;
+            this.empGrid2.ThemeStyle.GridColor = System.Drawing.Color.Lavender;
+            this.empGrid2.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.empGrid2.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.empGrid2.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.empGrid2.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.empGrid2.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.empGrid2.ThemeStyle.HeaderStyle.Height = 50;
+            this.empGrid2.ThemeStyle.ReadOnly = false;
+            this.empGrid2.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.empGrid2.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.empGrid2.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.empGrid2.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.empGrid2.ThemeStyle.RowsStyle.Height = 29;
+            this.empGrid2.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.empGrid2.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.empGrid2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.guna2DataGridView1_CellContentClick);
+            // 
             // Statistics
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Lavender;
             this.ClientSize = new System.Drawing.Size(1359, 881);
+            this.Controls.Add(this.empGrid2);
             this.Controls.Add(this.empGrid);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel2);
@@ -328,6 +393,7 @@
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.empGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.empGrid2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -351,5 +417,6 @@
         private System.Windows.Forms.Label numberM;
         private System.Windows.Forms.Label label5;
         private Guna.UI2.WinForms.Guna2DataGridView empGrid;
+        private Guna.UI2.WinForms.Guna2DataGridView empGrid2;
     }
 }

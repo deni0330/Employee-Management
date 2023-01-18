@@ -55,9 +55,6 @@ namespace Project_MIP
             numberF.Text = count.ToString();
             Con.Close();
 
-            /*SqlCommand sql = new SqlCommand("SELECT * from EmployeeTbl");
-            DataTable x = sql.ExecuteScalar();
-            List<string> list = x.*/
         }
 
         private void NrMale()
